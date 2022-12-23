@@ -1,0 +1,55 @@
+<div class="container">
+  <form [formGroup]="postForm" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">User Id</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="User Id"
+        formControlName="userId"
+      />
+      <small
+        class="text-danger"
+        *ngIf="form['userId'].errors && (form['userId'].dirty || form['userId'].touched)"
+      >
+        <ng-container *ngIf="form['userId'].errors['required']"
+          >This field is required</ng-container
+        >
+      </small>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="title"
+        formControlName="title"
+      />
+      <small
+        class="text-danger"
+        *ngIf="form['title'].errors && (form['title'].dirty || form['title'].touched)"
+      >
+        <ng-container *ngIf="form['title'].errors['required']"
+          >This field is required</ng-container
+        >
+        <ng-container *ngIf="form['title'].errors['invalidtext']"
+          >Initial should Start with letter 'x'</ng-container
+        >
+        <!-- {{form['title'].errors |json}} -->
+      </small>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Body</label>
+      <textarea class="form-control" rows="3" formControlName="body"></textarea>
+      <small
+        class="text-danger"
+        *ngIf="form['body'].errors && (form['body'].dirty || form['body'].touched)"
+      >
+        <ng-container *ngIf="form['body'].errors['required']"
+          >This field is required</ng-container
+        >
+      </small>
+    </div>
+    <button class="btn btn-success" [disabled]="postForm.invalid">Submit</button>
+  </form>
+</div>

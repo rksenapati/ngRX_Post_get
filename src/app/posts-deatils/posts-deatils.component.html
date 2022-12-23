@@ -1,0 +1,18 @@
+<div *ngIf="postsDetails | async as postDtl">
+  <div>
+    <span class="lable">id:-</span>
+    <span>{{ postDtl.id }}</span>
+  </div>
+  <div>
+    <span class="lable">user Id:-</span>
+    <span>{{ postDtl.userId }}</span>
+  </div>
+  <div>
+    <span class="lable">Title:-</span>
+    <span>{{ postDtl.title }}</span>
+  </div>
+  <div>
+    <span class="lable">Body:-</span>
+    <span>{{ postDtl.body }}</span>
+  </div>
+</div>
